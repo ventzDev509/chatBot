@@ -24,9 +24,9 @@ const client = new Client({
 
 client.on('qr', (qr) => {
      console.log(qr)
-//     qrcode.generate(qr, { small: true }, function (qr) {
-//     console.log(qr)
-// });
+    qrcode.generate(qr, { small: false }, function (qr) {
+    console.log(qr)
+});
 });
 
 client.on('ready', () => {
@@ -79,9 +79,9 @@ async function generateOpenAIResponse(userMessage) {
 async function sendMessageToWhatsApp(contact, message) {
     try {
         await client.sendMessage(contact, message);
-        console.log(JSON.stringify(message, null, 2));
     } catch (error) {
         console.error("Error sending message to WhatsApp:", error);
+        await client.sendMessage("Error sending message to WhatsApp");
     }
 }
 
