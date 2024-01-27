@@ -24,9 +24,9 @@ const client = new Client({
 
 client.on('qr', (qr) => {
      console.log(qr)
-    qrcode.generate(qr, { small: false }, function (qr) {
-    console.log(qr)
-});
+//     qrcode.generate(qr, { small: false }, function (qr) {
+//     console.log(qr)
+// });
 });
 
 client.on('ready', () => {
@@ -81,7 +81,7 @@ async function sendMessageToWhatsApp(contact, message) {
         await client.sendMessage(contact, message);
     } catch (error) {
         console.error("Error sending message to WhatsApp:", error);
-        await client.sendMessage("Error sending message to WhatsApp");
+        await client.sendMessage(contact,"Error sending message to WhatsApp");
     }
 }
 
