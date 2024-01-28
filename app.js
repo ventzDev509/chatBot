@@ -24,9 +24,9 @@ const client = new Client({
 
 client.on('qr', (qr) => {
      console.log(qr)
-    qrcode.generate(qr, { small: false }, function (qr) {
-    console.log(qr)
-});
+//     qrcode.generate(qr, { small: false }, function (qr) {
+//     console.log(qr)
+// });
 });
 
 client.on('ready', () => {
